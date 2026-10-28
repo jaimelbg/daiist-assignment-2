@@ -1,0 +1,510 @@
+{
+  "dataset": {
+    "workspace": "hx-hezqh",
+    "project": "ppe-detection-yfmym",
+    "version": 1,
+    "splits": {
+      "train": {
+        "published": 1566,
+        "kept": 832,
+        "dropped": 734
+      },
+      "valid": {
+        "published": 420,
+        "kept": 211,
+        "dropped": 209
+      },
+      "test": {
+        "published": 211,
+        "kept": 211,
+        "dropped": 0
+      }
+    },
+    "composition": {
+      "train (leak-free)": {
+        "images": 832,
+        "images_with_people": 541,
+        "images_with_violation": 101,
+        "instances": {
+          "boots": 1063,
+          "gloves": 64,
+          "helmet": 760,
+          "human": 703,
+          "vest": 997
+        },
+        "images_containing": {
+          "boots": 473,
+          "gloves": 43,
+          "helmet": 581,
+          "human": 541,
+          "vest": 708
+        },
+        "median_box_area_pct": {
+          "boots": 1.21,
+          "gloves": 32.01,
+          "helmet": 1.3,
+          "human": 26.19,
+          "vest": 6.51
+        }
+      },
+      "valid (leak-free)": {
+        "images": 211,
+        "images_with_people": 121,
+        "images_with_violation": 32,
+        "instances": {
+          "boots": 244,
+          "gloves": 38,
+          "helmet": 159,
+          "human": 187,
+          "vest": 246
+        },
+        "images_containing": {
+          "boots": 99,
+          "gloves": 21,
+          "helmet": 120,
+          "human": 121,
+          "vest": 163
+        },
+        "median_box_area_pct": {
+          "boots": 1.01,
+          "gloves": 18.56,
+          "helmet": 1.18,
+          "human": 22.45,
+          "vest": 5.34
+        }
+      },
+      "test": {
+        "images": 211,
+        "images_with_people": 158,
+        "images_with_violation": 39,
+        "instances": {
+          "boots": 286,
+          "gloves": 16,
+          "helmet": 165,
+          "human": 178,
+          "vest": 232
+        },
+        "images_containing": {
+          "boots": 146,
+          "gloves": 9,
+          "helmet": 146,
+          "human": 158,
+          "vest": 182
+        },
+        "median_box_area_pct": {
+          "boots": 0.71,
+          "gloves": 37.34,
+          "helmet": 1.14,
+          "human": 27.58,
+          "vest": 5.4
+        }
+      }
+    }
+  },
+  "training": {
+    "base_model": "yolo11n.pt",
+    "epochs": 50,
+    "imgsz": 640,
+    "batch": 8,
+    "patience": 15,
+    "seed": 0,
+    "device": "0"
+  },
+  "detection": {
+    "finetuned yolo11n": {
+      "map50": 0.8531054962032527,
+      "map50_95": 0.6258901547688009,
+      "per_class": {
+        "boots": {
+          "instances": 286,
+          "precision": 0.911864406779661,
+          "recall": 0.9405594405594405,
+          "ap50": 0.9566995883024413,
+          "ap50_95": 0.6607889084231926
+        },
+        "gloves": {
+          "instances": 16,
+          "precision": 0.35714285714285715,
+          "recall": 0.625,
+          "ap50": 0.49108189262966345,
+          "ap50_95": 0.23712595089863475
+        },
+        "helmet": {
+          "instances": 165,
+          "precision": 0.9156626506024096,
+          "recall": 0.9212121212121213,
+          "ap50": 0.9296470677065856,
+          "ap50_95": 0.6650906861573124
+        },
+        "human": {
+          "instances": 178,
+          "precision": 0.8631578947368421,
+          "recall": 0.9213483146067416,
+          "ap50": 0.9424726263007284,
+          "ap50_95": 0.8289039259064521
+        },
+        "vest": {
+          "instances": 232,
+          "precision": 0.8683127572016461,
+          "recall": 0.9094827586206896,
+          "ap50": 0.9456263060768456,
+          "ap50_95": 0.7375413024584129
+        }
+      }
+    },
+    "COCO yolo11n zero-shot": {
+      "map50": 0.16165426034190436,
+      "map50_95": 0.09559362924403647,
+      "per_class": {
+        "boots": {
+          "instances": 286,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "gloves": {
+          "instances": 16,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "helmet": {
+          "instances": 165,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "human": {
+          "instances": 178,
+          "precision": 0.6923076923076923,
+          "recall": 0.9101123595505618,
+          "ap50": 0.8082713017095218,
+          "ap50_95": 0.47796814622018235
+        },
+        "vest": {
+          "instances": 232,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        }
+      }
+    },
+    "predict nothing": {
+      "map50": 0.0,
+      "map50_95": 0.0,
+      "per_class": {
+        "boots": {
+          "instances": 286,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "gloves": {
+          "instances": 16,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "helmet": {
+          "instances": 165,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "human": {
+          "instances": 178,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "vest": {
+          "instances": 232,
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        }
+      }
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "boots",
+      "gloves",
+      "helmet",
+      "human",
+      "vest",
+      "background"
+    ],
+    "rows_predicted_cols_true": [
+      [
+        269,
+        0,
+        0,
+        0,
+        0,
+        26
+      ],
+      [
+        0,
+        10,
+        0,
+        0,
+        1,
+        17
+      ],
+      [
+        0,
+        0,
+        152,
+        0,
+        0,
+        14
+      ],
+      [
+        0,
+        0,
+        1,
+        164,
+        0,
+        25
+      ],
+      [
+        0,
+        0,
+        1,
+        1,
+        211,
+        30
+      ],
+      [
+        17,
+        6,
+        11,
+        13,
+        20,
+        0
+      ]
+    ],
+    "conf": 0.25
+  },
+  "costs": {
+    "fn": 2400.0,
+    "fp": 2.17,
+    "tp": 2.17,
+    "tn": 0.0,
+    "review": 0.07,
+    "reviewer_miss": 0.05,
+    "reviewer_false_alarm": 0.02,
+    "base_rate": 0.05
+  },
+  "operations": {
+    "entries_per_day": 3000,
+    "seconds_per_review": 20.0,
+    "peak_share": 0.5,
+    "peak_minutes": 30.0,
+    "reviewer_hours_per_day": 7.5
+  },
+  "decision": {
+    "test_images_with_people": 158,
+    "test_violations": 39,
+    "single_threshold": {
+      "threshold": 0.5,
+      "recall": 1.0,
+      "false_positive_rate": 0.058823529411764705,
+      "cost_per_1000": 229.76470588235293
+    },
+    "band": {
+      "t_pass": 0.5,
+      "t_fail": 0.5,
+      "cost_per_1000": 229.76470588235293,
+      "review_share": 0.0
+    },
+    "band_confusion": {
+      "violation": {
+        "pass": 0,
+        "review": 0,
+        "fail": 39
+      },
+      "compliant": {
+        "pass": 112,
+        "review": 0,
+        "fail": 7
+      }
+    },
+    "band_rates": {
+      "pos": {
+        "pass": 0.0,
+        "review": 0.0,
+        "fail": 1.0
+      },
+      "neg": {
+        "pass": 0.9411764705882353,
+        "review": 0.0,
+        "fail": 0.058823529411764705
+      }
+    },
+    "staffing": {
+      "reviews_per_day": 0.0,
+      "review_hours_per_day": 0.0,
+      "reviewers_average": 0.0,
+      "reviewers_at_peak": 0.0
+    },
+    "policies": [
+      {
+        "policy": "Do nothing (pass everyone)",
+        "cost_per_1000": 120000.0,
+        "missed_violations_per_1000": 50.0,
+        "review_share": 0.0,
+        "reviews_per_day": 0.0,
+        "reviewers_at_peak": 0.0
+      },
+      {
+        "policy": "Person checks everyone",
+        "cost_per_1000": 6214.304999999999,
+        "missed_violations_per_1000": 2.5,
+        "review_share": 1.0,
+        "reviews_per_day": 3000.0,
+        "reviewers_at_peak": 16.666666666666668
+      },
+      {
+        "policy": "Stop everyone",
+        "cost_per_1000": 2169.9999999999995,
+        "missed_violations_per_1000": 0.0,
+        "review_share": 0.0,
+        "reviews_per_day": 0.0,
+        "reviewers_at_peak": 0.0
+      },
+      {
+        "policy": "Model alone (t = 0.50)",
+        "cost_per_1000": 229.76470588235293,
+        "missed_violations_per_1000": 0.0,
+        "review_share": 0.0,
+        "reviews_per_day": 0.0,
+        "reviewers_at_peak": 0.0
+      },
+      {
+        "policy": "Model + review (0.50 to 0.50)",
+        "cost_per_1000": 229.76470588235293,
+        "missed_violations_per_1000": 0.0,
+        "review_share": 0.0,
+        "reviews_per_day": 0.0,
+        "reviewers_at_peak": 0.0
+      }
+    ],
+    "baselines": {
+      "finetuned yolo11n": {
+        "best_threshold": 0.5,
+        "cost_per_1000": 229.76470588235293,
+        "recall": 1.0,
+        "false_positive_rate": 0.058823529411764705
+      },
+      "COCO yolo11n zero-shot": {
+        "best_threshold": 0.0,
+        "cost_per_1000": 2169.9999999999995,
+        "recall": 1.0,
+        "false_positive_rate": 1.0
+      },
+      "predict nothing": {
+        "best_threshold": 0.0,
+        "cost_per_1000": 2169.9999999999995,
+        "recall": 1.0,
+        "false_positive_rate": 1.0
+      }
+    },
+    "sensitivity": {
+      "base_rate": [
+        {
+          "value": 0.01,
+          "threshold": 0.5,
+          "cost_per_1000": 148.0705882352941,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        },
+        {
+          "value": 0.02,
+          "threshold": 0.5,
+          "cost_per_1000": 168.49411764705883,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        },
+        {
+          "value": 0.05,
+          "threshold": 0.5,
+          "cost_per_1000": 229.76470588235293,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        },
+        {
+          "value": 0.1,
+          "threshold": 0.5,
+          "cost_per_1000": 331.88235294117646,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        },
+        {
+          "value": 0.18,
+          "threshold": 0.5,
+          "cost_per_1000": 495.2705882352941,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        }
+      ],
+      "fn_cost": [
+        {
+          "value": 25,
+          "threshold": 0.5,
+          "cost_per_1000": 229.76470588235293,
+          "t_pass": 0.5,
+          "t_fail": 0.99,
+          "review_share": 0.03135100193923728
+        },
+        {
+          "value": 300,
+          "threshold": 0.5,
+          "cost_per_1000": 229.76470588235293,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        },
+        {
+          "value": 1000,
+          "threshold": 0.5,
+          "cost_per_1000": 229.76470588235293,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        },
+        {
+          "value": 2400,
+          "threshold": 0.5,
+          "cost_per_1000": 229.76470588235293,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        },
+        {
+          "value": 10000,
+          "threshold": 0.5,
+          "cost_per_1000": 229.76470588235293,
+          "t_pass": 0.5,
+          "t_fail": 0.5,
+          "review_share": 0.0
+        }
+      ]
+    }
+  }
+}
